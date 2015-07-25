@@ -53,7 +53,7 @@ func replaceBooleans(blob []byte) []byte {
 }
 
 func replaceArrays(blob []byte) []byte {
-	re, err := regexp.Compile("(\\s*)(\\[|\\])(,?\\s*(:?\n|$))")
+	re, err := regexp.Compile("(\\s*)(\\[\\]|\\[|\\])(,?\\s*(:?\n|$))")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -62,7 +62,7 @@ func replaceArrays(blob []byte) []byte {
 }
 
 func replaceHashes(blob []byte) []byte {
-	re, err := regexp.Compile("(\\s*)({|})(,?\\s*(?:\n|$))")
+	re, err := regexp.Compile("(\\s*)({}|{|})(,?\\s*(?:\n|$))")
 	if err != nil {
 		log.Fatal(err)
 	}
